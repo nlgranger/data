@@ -9,7 +9,6 @@ import warnings
 from functools import partial
 
 import expecttest
-import numpy as np
 
 import torch
 
@@ -39,7 +38,7 @@ class TestDataPipeTFRecord(expecttest.TestCase):
         self.temp_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "_fakedata", "tfrecord")
 
     def assertArrayEqual(self, arr1, arr2):
-        np.testing.assert_array_equal(arr1, arr2)
+        self.assertEqual(arr1, arr2)
 
     def _ground_truth_data(self):
         for i in range(4):
